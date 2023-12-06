@@ -10,6 +10,7 @@ private:
 
 public:
 	// Constructors
+	Quantity();					// Default constructor; required to make Quantity a field in IngredientLine class
 	Quantity(int);				// Constructor for whole numbers
 	Quantity(int, int);			// Constructor for fractions (numerator, denominator)
 	Quantity(int, int, int);	// Constructor for mixed numbers (whole, numerator, denominator)

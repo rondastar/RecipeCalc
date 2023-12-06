@@ -1,6 +1,11 @@
 #include "Quantity.h"
 
 // Constructors
+// Default constructor - required to make Quantity a member of IngredientLine class
+Quantity::Quantity()
+{
+}
+
 // Constructor for whole numbers
 Quantity::Quantity(int wholeNumber) 
 {
@@ -24,11 +29,14 @@ Quantity::Quantity(int wholeNumber, int numerator, int denominator)
 void Quantity::SetQuantity(int wholeNumber) 
 {
 	m_wholeNumber = wholeNumber;
+	m_numerator = 0;
+	m_denominator = -1;
 }
 
 // Setter for fractions
 void Quantity::SetQuantity(int numerator, int denominator)
 {
+	m_wholeNumber = 0;
 	m_numerator = numerator;
 	m_denominator = denominator;
 }
