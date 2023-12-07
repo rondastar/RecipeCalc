@@ -33,6 +33,7 @@ void IngredientLine::SetIngredientLine(Quantity quantity, std::string unit, std:
 void IngredientLine::SetIngredientLine(Quantity quantity, std::string ingredient)
 {
 	m_quantity = quantity;
+	m_unit = "0";
 	m_ingredient = ingredient;
 
 }
@@ -40,6 +41,8 @@ void IngredientLine::SetIngredientLine(Quantity quantity, std::string ingredient
 // Setter for format ingredient
 void IngredientLine::SetIngredientLine(std::string ingredient)
 {
+	m_quantity = Quantity();	// NOTE: null pointer causes error
+	m_unit = "0";
 	m_ingredient = ingredient;
 
 }
