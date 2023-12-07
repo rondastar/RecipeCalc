@@ -52,17 +52,32 @@ void printQuantity(Quantity qty) {
     }
 }
 
-void prepopulateQuantities() {      // for testing functions
-    Quantity mixedNum = Quantity::Quantity(1, 2, 3);  // 1 2/3  - test mixed number
-    Quantity wholeNum = Quantity::Quantity(2);        // 2      - test small int
-    Quantity fraction = Quantity::Quantity(1, 4);     // 1/4    - test fraction 
-    Quantity wholeNum2 = Quantity::Quantity(500);     // 500    - test larger int
+void testQuantities() {      // for testing functions related to quantities
 
     // testing functions using quantities
-    printQuantity(multiplyQuantity(mixedNum, 10));   // works
-    printQuantity(multiplyQuantity(wholeNum, 4));    // works
-    printQuantity(multiplyQuantity(fraction, 2));    // works
-    printQuantity(multiplyQuantity(wholeNum2, 2));   // NOTE: realized I need to initialize all variables
+    Quantity mixedNum = Quantity::Quantity(1, 2, 3);  // 1 2/3  - test mixed number
+    printQuantity(mixedNum);
+    std::cout << "becomes ";
+    printQuantity(multiplyQuantity(mixedNum, 3));     // multiply by 3
+    std::cout << std::endl;
+
+    Quantity wholeNum = Quantity::Quantity(2);        // 2      - test small int
+    printQuantity(wholeNum);
+    std::cout << "becomes ";
+    printQuantity(multiplyQuantity(wholeNum, 3));     // multiply by 3
+    std::cout << std::endl;
+
+    Quantity fraction = Quantity::Quantity(1, 4);     // 1/4    - test fraction 
+    printQuantity(fraction);
+    std::cout << "becomes ";
+    printQuantity(multiplyQuantity(fraction, 3));    // multiply by 3
+    std::cout << std::endl;
+
+    Quantity wholeNum2 = Quantity::Quantity(500);     // 500    - test larger int
+    printQuantity(wholeNum2);
+    std::cout << "becomes ";
+    printQuantity(multiplyQuantity(wholeNum2, 3));     // multiply by 3
+    std::cout << std::endl;
 }
 
 void printIngredientLine(IngredientLine il) {
@@ -76,8 +91,14 @@ void printIngredientLine(IngredientLine il) {
  }
 
 IngredientLine testIngredient() {       // for testing functions
-    Quantity testQty{ Quantity(3) };
+    Quantity testQty{ Quantity(2,1,4) };
     IngredientLine testIngredient{ IngredientLine(testQty, "cups", "flour") };
+    return testIngredient;
+}
+
+IngredientLine testIngredient2() {       // for testing functions
+    Quantity testQty{ Quantity(1) };
+    IngredientLine testIngredient{ IngredientLine(testQty, "egg") };
     return testIngredient;
 }
 
@@ -138,9 +159,10 @@ void parseQuantityString() {
 }
 
 int main() {
-    //prepopulateQuantities();
-    //printIngredientLine(testIngredient());
-    parseQuantityString();
+    //testQuantities();
+    printIngredientLine(testIngredient());
+    printIngredientLine(testIngredient2());
+    //parseQuantityString();
 
     return 0;
 }
