@@ -102,66 +102,45 @@ IngredientLine testIngredient2() {       // for testing functions
     return testIngredient;
 }
 
-void parseQuantityString() {
-    std::string line;
-    while (std::getline(std::cin, line))
-    {
-        std::istringstream iss(line);
-        std::string first_on_line;
-        std::string second_on_line;
-        std::string third_on_line;
-        if (iss >> first_on_line >> second_on_line >> third_on_line);
+void parseQuantityString() { // Note: Not yet ready!!
+        // String variable to be split
+        std::string str = "1 2/3 cups Flour";
+
+        // variable to store token obtained from the original string
+        std::string s;
+
+        // constructing stream from the string
+        std::stringstream ss(str);
+
+        // declaring vector to store the string after split
+        std::vector<std::string> v;
+
+        // using while loop until the getline condition is
+        // satisfied
+        // ' ' represent split the string whenever a space is
+        // found in the original string
+        while (getline(ss, s, ' ')) {
+
+            // store token string in the vector
+            v.push_back(s);
+        }
+
+        // print the vector -- test to see how line is split
+        for (int i = 0; i < v.size(); i++) {
+            std::cout << v[i] << std::endl;
+        }
+        
+        for (int i = 0; i < v.size(); i++) {
             
-    }
+        }
 
-    //Quantity q = Quantity();
-    //    std::string rawInput;
-    //    std::cout << "Enter a whole number, mixed number, or fraction" << std::endl;
-    //    
-    //    while (std::getline(std::cin, rawInput, ' ')) {
-    //        int int1{ 0 };
-    //        int int2{ 0 };
-    //        int int3{ 0 };
-    //        //std::string str1{ "0" };
-    //        //std::string str2{ "0" };
-    //        //std::string str3{ "0" };
-    //        bool isNum{ true };
-
-    //        for (int i = 0; 1 < rawInput.length(); ++i) {
-    //            if (isNum) {
-    //                isNum = isdigit(rawInput[i]);
-    //                if (int1 == 0) {
-    //                    int1 = isdigit(rawInput[i]);
-    //                    break;
-    //                }
-    //                else if (int2 == 0) {
-    //                    int2 = isdigit(rawInput[i]);
-    //                    break;
-    //                }
-    //                else if (int3 == 0) {
-    //                    int3 = isdigit(rawInput[i]);
-    //                    break;
-    //                }
-    //                else {
-    //                    std::cout << "Please enter recipe line in format quantity"
-    //                        << "(whole number, fraction, or mixed number) unit ingredient." << std::endl;
-    //                    break;
-    //                }
-    //                //}
-    //                //else (is)
-    //                break;
-    //            }
-    //        } 
-
-    //        std::cout << "int1 is " << int1 << "\nint2 is" << int2 << "\nint3 is" << int3 << std::endl;
-    //    }
 
 }
 
 int main() {
     //testQuantities();
-    printIngredientLine(testIngredient());
-    printIngredientLine(testIngredient2());
+    //printIngredientLine(testIngredient());
+    //printIngredientLine(testIngredient2());
     //parseQuantityString();
 
     return 0;
